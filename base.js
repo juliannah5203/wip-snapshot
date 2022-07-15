@@ -12,7 +12,7 @@ let currentInspirationPixels;
 function preload() {
   
 
-  let allInspirations = sceneChanger();
+  let allInspirations = p4_inspirations();
 
   for (let i = 0; i < allInspirations.length; i++) {
     let insp = allInspirations[i];
@@ -20,47 +20,34 @@ function preload() {
     let option = document.createElement("option");
     option.value = i;
     option.innerHTML = insp.name;
-    scene.appendChild(option);
+    dropper.appendChild(option);
   }
-  scene.onchange = e => inspirationChanged(allInspirations[e.target.value]);
+  dropper.onchange = e => inspiationChanged(allInspirations[e.target.value]);
   currentInspiration = allInspirations[0];
 
-  confirmButton.onclick = () =>
-    inspirationChanged(allInspirations[scene.value]);
-
-    let allWeathers = weatherChanger();
-
-    for (let i = 0; i < allWeathers.length; i++) {
-      let insp = allWeathers[i];
-    //   insp.image = loadImage(insp.assetUrl);
-      let option = document.createElement("option");
-      option.value = i;
-      option.innerHTML = insp.name;
-      weather.appendChild(option);
-    }
-    // time.onchange = e => timeChanged(allTimes[e.target.value]);
-    // currentTime = allTimes[0];
+  restart.onclick = () =>
+    inspirationChanged(allInspirations[dropper.value]);
   
-    // confirmButton.onclick = () =>
-    //   timeChanged(allTimes[time.value]);
+  let allWeathers = weatherChanger();
 
-    let allTimes = timeChanger();
+    for (let j = 0; j < allWeathers.length; j++) {
+      let insp = allWeathers[j];
+    //   insp.image = loadImage(insp.assetUrl);
+      let option1 = document.createElement("option");
+      option1.value = j;
+      option1.innerHTML = insp.name;
+      weather.appendChild(option1);
+    }
+   let allTimes = timeChanger();
 
     for (let i = 0; i < allTimes.length; i++) {
       let insp = allTimes[i];
     //   insp.image = loadImage(insp.assetUrl);
-      let option = document.createElement("option");
-      option.value = i;
-      option.innerHTML = insp.name;
-      time.appendChild(option);
+      let option2 = document.createElement("option");
+      option2.value = i;
+      option2.innerHTML = insp.name;
+      time.appendChild(option2);
     }
-    // time.onchange = e => timeChanged(allTimes[e.target.value]);
-    // currentTime = allTimes[0];
-  
-    // confirmButton.onclick = () =>
-    //   timeChanged(allTimes[time.value]);
-
-
 }
 
 function inspirationChanged(nextInspiration) {
@@ -69,12 +56,6 @@ function inspirationChanged(nextInspiration) {
   memory.innerHTML = "";
   setup();
 }
-// function timeChanged(nextTime) {
-//     currentTime = nextTime;
-//     currentDesign = undefined;
-//     memory.innerHTML = "";
-//     setup();
-//   }
 
 
 
@@ -150,4 +131,4 @@ function draw() {
   }
   
   fpsCounter.innerHTML = Math.round(frameRate());
-}
+}""
