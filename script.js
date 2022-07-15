@@ -7,7 +7,7 @@
 
 
   
-function p4_inspirations() {
+function sceneChanger() {
     let inspiration = [];
   
     inspiration[0] = {

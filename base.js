@@ -12,7 +12,7 @@ let currentInspirationPixels;
 function preload() {
   
 
-  let allInspirations = p4_inspirations();
+  let allInspirations = sceneChanger();
 
   for (let i = 0; i < allInspirations.length; i++) {
     let insp = allInspirations[i];
